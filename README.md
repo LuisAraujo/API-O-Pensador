@@ -1,7 +1,7 @@
 API O Pensador
 =========================
 
-![](http://asad)
+![](https://github.com/LuisAraujo/API-O-Pensador/blob/master/favicon.png?raw=true)
 
 >API para obtenção de frases do site O Pensador.
 
