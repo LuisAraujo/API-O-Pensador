@@ -2,39 +2,62 @@
 <html>
 <head>
     <title>API O Pensador</title>
-	<link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link rel="icon" href="favicon.png" type="image/*"/>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="description" content="API for get phrases by O Pensador site">
     <meta name="author" content="Luis Araujo">
 
-    <script src="script/jquery-3.2.0.min.js"></script>
-   
-    <script src="script/opensador-api.js"></script>
-    <script src="script/main.js"></script>
-	
+    <script src="jquery.js"></script>
+	<script src="jquery.easing.min.js"></script>
+    <script src="scrolling-nav.js"></script> 
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
     <style>
-	body, document{
+	html, body{
 		padding: 0px;
 		margin:0px;
 		height: 100%;
 		width: 100%;
-		font-family: 'Cabin', sans-serif;
+	   font-family: 'Roboto', sans-serif;
 	}
 	#header-page{
+	    padding-top: 5px;
 		position: fixed;
 		top:0px;
-		height: 50px;
+		height: 60px;
 		width: 100%;
 		background-color: #ed1c24;
+		box-shadow: 0px 2px 5px 2px rgba(0,0,0,.16), 2px 2px  10px 2px rgba(0,0,0,.12);
+		
+		
 	}
-
+	
+	#header-page.resized{
+		padding-top: 0px; 
+		height: 50px;
+		
+		animation-name: resize-up-head ;
+		animation-duration: 1s; 
+	}
+	@keyframes resize-up-head {
+	    		
+		from {padding-top: 5px; height: 60px;}
+		to { padding-top: 0px; height: 50px;}
+	}
+	
+	#body-page{
+		margin-top: 60px; 
+		margin-left: 10%;
+		height: 100%;
+		width: 80%;
+	}
+	
 	.icon-header{
 		color: #fff;
 		font-size: 22px;
 		height: 50px;
-		line-height: 50px;
+        line-height: 50px;
 		margin-left: 10px;
 		margin-right: 10px;
 		float:left;
@@ -48,6 +71,7 @@
 		line-height: 50px;
 		margin-left: 20px;
 		float:left;
+		text-decoration:none;
 	}
 
 
@@ -64,11 +88,9 @@
 	}
 
 	.section-page{
-	    
-		margin-top: 60px; 
-		margin-left: 10%;
+	    padding-top: 100px;
 		height: 100%;
-		width: 80%;
+		width: 100%;
 	}
 
 	#logo{
@@ -97,12 +119,25 @@
 		margin-top: 10px;
 		text-align: center;
 	}
-		
-	.bt-link.center{
-		margin-left: calc(50% - 90px) !important;
-		
+			
+	.bt-link.percent-size{
+	     width: 70%;
+		 margin-left: 15%;
+		 margin-top: 50px;
+		 font-size: 100%;
 	}
 
+				
+	.bt-link.full-size{
+	     width: 100%;
+		 margin-top: 10px;
+	}
+	
+	.bt-link.full-size img{
+	    height: 20px;
+		float: none;
+	}
+	
 	.bt-link img{
 		height: 20px;
 		float: left;
@@ -122,54 +157,169 @@
 		animation-name: shadow-hover  ;
 		animation-duration: 0.2s; 
 	}	
+	.box-link{
+		padding: 20px; 
+		font-size: 15px;
+		text-align: center;
+		height: 140px; 
+		box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12); 
+		float:left;  
+		margin-top: 10px;
+	}
+	
+	.box-link:first-child{
+	   margin-right: 10%;
+	}
+	
+	.box-link .title{
+		font-size: 25px; 
+	}
+	
+	.box-link.s3{
+		width:40%;
+	}
+	
+	.box-link.s1{
+	    margin-left: 0px;
+		width:90%;
+		height: 70%; 
+	}
+	.box-link.s1 .title{
+		text-align: left;
+	}
+	a{
+		text-decoration:none;
+		color:#ed1c24;
+	}
+	
+	.desciption{
+	   text-align:left;
+	   margin-top: 20px;
+	   line-height: 40px;
+	}
+	
+	.title-note{
+	    font-size: 30px;
+		margin-left: 5px;
+		text-align: left;
+		color:#ed1c24;
+	}
+	
+	.description-note{
+	    text-align: left;
+		margin-left: 5px;
+		margin-top: 5px;
+	}
 	
 </style>
 </head>
-<body id="body">
-<div id="header-page">
+
+<body id="body" >
+
+<div class="navbar" id="header-page">
 	<div class="icon-header">API O Pensador</div>
-	<div class="bt-header">Home</div>
-	<div class="bt-header">Download</div>
-	<div class="bt-header">Guia de Inicialização</div>
+	<a class="page-scroll bt-header"  href="#page-home"  >Home</a>
+	<a class="page-scroll bt-header"  href="#page-guide" >Guia de Inicialização</a>
+    <a class="page-scroll bt-header"  href="#page-examples" >Exemplos</a>
 </div>
 <div id="body-page">
 
-<div class="section-page">
+<section class="section-page" id="page-home">
+
  <div style="height:300px;">
- <div style="width: 40%; float:left;">
+	<div style="width: 40%; float:left;">
 	<img id="logo" src = "favicon.png">
  </div>
-<div style="width: 60%; float:left; height: 300px;">
+
+ <div style="width: 60%; float:left;">
      <div id="title-page">Incorpore frases em suas aplicações</div>
 	 <div style= " margin-top: 30px;" id="content-page">
-		 API O Pensador é uma API - não oficial - para obtenção de frases do site "O Pensador". </br>	 
+		 API O Pensador é uma API - <i>não oficial</i> - para obtenção de frases do site "O Pensador". </br>	 
 		 A API utiliza <code style="text-aling: center; border-radius: 2px; background-color: #ddd; color: #bd4147; padding: 2px; ">  ajax</code>  para obetenção dos dados, assim é requedido suporte à linguagem PHP. <br>
-		  API Todas as frases são do site "O Pensador" e devem ser referenciadas.	 
+		 Todas as frases são do site <a href="https://pensador.uol.com.br/" target="blank">O Pensador</a> e devem ser referenciadas.	 
 	 </div>
-	 <div style="height: 70px;">
+	 <div >
 		<div class="bt-link"><img src="git-icon.png"> Repositório do Github</div>
 	  
-		<div class="bt-link"> Inicializar API O Pensador</div>
+		<div class="bt-link"> <img src="play-icon.png">Inicializar API</div>
 	  
-		<div class="bt-link"> Visualize o Demo </div>
+		<div class="bt-link"> <img src="view-icon.png"> Visualize o Demo </div>
 	  </div> 	 	   
 </div>
 </div>
-<div style="padding: 20px; font-size: 15px; text-align: center;  width:calc(30%); height: 100px; 
-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12); float:left;  margin-right: 10px;">
-	<div style="font-size: 25px; ">Donwload API.zip</div>
-	<div class="bt-link center"> <img src="down-icon.png"> Download  </div>	 
+
+<div style="margin-top: 100px; ">
+<div class="box-link s3">
+	<div class="title">Donwload API</div>
+	<div class="bt-link center percent-size"> <img src="down-icon.png"> Download  </div>	 
+
 </div>
  
- <div style="padding: 20px; font-size: 15px; text-align: center;  width:calc(30%); height: 100px; 
-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);  float:left; margin-right: 10px;">
-	<div style="font-size: 25px; ">Donwload API.zip + Demo</div>
-	<div class="bt-link center"> <img src="down-icon.png"> Download  </div>	 
+ <div class="box-link s3">
+	<div class="title">Donwload API + Demo</div>
+	<div class="bt-link center percent-size"> <img src="down-icon.png"> Download  </div>	 
 </div> 
+
  
+</section>
+
+
+<section  class="section-page" id="page-guide">
+
+ <div class="box-link s1">
+
+ <div class="title"> Como utilizar a API </div>
+ <div class="desciption"> A API precisa ser executada em um servidor com suporte a PHP. 
+ O script <code>opensador-api.js</code> deve ser adicionado no seu código. 
+ 
+ Configure o nome do autor com <code>startAPI</code> e
+ inicie a aplicação. Use <code>APIready</code> para implementar sua aplicação (veja nos exemplos). 
+ 
+ </div> 
+
+ <pre style='text-align:left;  color:#000000;background:#f2f2f2; padding:10px; border-radius:10px'>
+<span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; font-weight:bold; '>html</span><span style='color:#7f0055; '>></span> 
+ <span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; font-weight:bold; '>head</span><span style='color:#7f0055; '>></span>
+ <span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; font-weight:bold; '>script</span> src=<span style='color:#2a00ff; '>"opensador-api.js"</span><span style='color:#7f0055; '>></span><span style='color:#7f0055; '>&lt;/</span><span style='color:#7f0055; font-weight:bold; '>script</span><span style='color:#7f0055; '>></span>
+ <span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; font-weight:bold; '>script</span><span style='color:#7f0055; '>></span>
+   startAPI(<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>Steve Jobs</span><span style='color:#2a00ff; '>"</span>);
+
+   <span style='color:#7f0055; font-weight:bold; '>function</span> APIready(dados){
+   <span style='color:#3f7f59; '>//Insert your logic here</span>
+   };
+   
+ <span style='color:#7f0055; '>&lt;/</span><span style='color:#7f0055; font-weight:bold; '>script</span><span style='color:#7f0055; '>></span>
+<span style='color:#7f0055; '>&lt;/</span><span style='color:#7f0055; font-weight:bold; '>head</span><span style='color:#7f0055; '>></span>
+<span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; font-weight:bold; '>body</span><span style='color:#7f0055; '>></span> 
+<span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; font-weight:bold; '>/body</span><span style='color:#7f0055; '>></span> 
+<span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; font-weight:bold; '>html</span><span style='color:#7f0055; '>></span> 
+</pre>
+
+<div style="height: 100px; border-left: 5px solid #ed1c24 ">
+<div class="title-note"> Nota: </div>
+<div class="description-note"> Essa versão da API obtêm apenas dados da primeira página do autor. </div>
 </div>
 
+</div> 
+</section>
 
 
+<section  class="section-page" id="page-examples">
+
+<div class="box-link s1">
+
+ <div class="title"> Exemplo </div>
+ <div class="desciption"> Veja Exemplos do uso da API O pensador</div> 
+ 
+ <div style="height: 300px; width: 150px; margin-top: 50px; float:left">
+    <img style="height: 100%" src="demo.jpg">
+	<div class="bt-link full-size"> <img src="view-icon.png"></div>	 
+	
+ </div>
+
+ 
+</section>
+
+</div>
 </body>
 </html>
