@@ -46,7 +46,7 @@ function startAPI(author){
 function getData(cb){
 
     var dados;
-	console.log(getAuthor());
+	
     $.ajax({
         type: "POST",
         url: "getSite.php?autor="+getAuthor(),
@@ -121,11 +121,11 @@ function getListPhrases(){
 * @return {JSON}  list phrase of author
 */
 function parser(html){
-
+   
     authors_target = trim(getAuthor().toLowerCase().replace(" ","_"));
 	authors_return = "";
 	authors_split = authors_target.split("_");
-	console.log(authors_target, authors_split.length);
+	
 	for(i=0; i<authors_split .length; i++){
 	    
 		if(i>0)
@@ -135,7 +135,7 @@ function parser(html){
 		
 	}
 			
-    returnJSON = "{'author': '"+authors_return+"', phrase: {";
+    returnJSON = '{';
 	listPhrases =  $(html).find(".phrases-list");	
 	phrases = $(listPhrases).find("div");
 	contphrase = 0;
@@ -144,24 +144,27 @@ function parser(html){
 	      		
 			individualPhrase = $(phrases[i]).find(".frase.fr");
 			
+			        
 			if(individualPhrase.length){
-				//console.log( individualPhrase.text());
+				
 				aut = $(phrases[i]).find(".autor").text();
 				authors = trim( aut.toLowerCase().replace(" ","_") );
-				
-				console.log(authors, authors_target);
-				
+								
 				if( authors == authors_target ){
-					if(contphrase > 0)
+				if(contphrase > 0)
 						returnJSON +=","; 
+						
+				    returnJSON += '"'+contphrase+'" : '; 
+				
+					
 			        
 					contphrase++;
-				    returnJSON += " '"+individualPhrase.text()+"'"; 
+				    returnJSON += ' "'+individualPhrase.text().replace(/"/g, "'")+'"'; 
 				}
 		    }
 	};
 	
-	   returnJSON +="}}"; 
+	   returnJSON +="}"; 
 	   
 	  
 	   

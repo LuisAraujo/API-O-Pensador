@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API O Pensador</title>
+	<link rel="icon" href="favicon.png" type="image/*"/>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="description" content="API for get phrases by O Pensador site">
+    <meta name="author" content="Luis Araujo">
+
+    <script src="jquery-3.2.0.min.js"></script>
+   
+    <script src="opensador-api.js"></script>
+    <script src="main.js"></script>
+     <style>
+		 @font-face {
+			font-family: Swis721;
+			src: url(Swis721.ttf);
+		}
+		@font-face {
+			font-family: Swis721Hv;
+			src: url(Swis721Hv.ttf);
+		}
+
+
+		body{
+		font-family: Swis721;
+		  background-color: #fff;
+		}
+		
+		.frase{
+			width: calc(100% - 45px);
+			min-height: 100px;
+			background-color: #fff;
+			color: #000;
+			margin-top: 10px;
+			border-radius: 0px 10px 10px 10px;
+		    padding: 10px;
+			float:left;
+		}
+		
+		.seta{			 
+			margin-top: 10px;		
+			background-image:url(seta.png);
+			width:20px;
+			height: 20px;
+			float:left;
+		}
+		#container-mobile{
+			background-color:#222;
+			border-radius:25px;
+			height: 600px;
+			width:360px;
+			padding:20px;
+			border: 2px solid #aaa;
+			margin-left:auto;
+			margin-right:auto;
+		}
+		
+		#screen-mobile{
+			background-image: url("chat-background.jpg");
+			width:360px;
+			height: 520px;
+			margin-top: 20px;
+		}
+		
+		#header-whats{
+			background-color: #075e55;
+			height: 40px;
+			width: calc(100% - 10px);
+			padding: 5px;
+		}
+		
+		#icon-perfil{
+			height: 40px;
+			width: 40px;
+			border-radius: 20px;
+			float:left;
+			background-image: url("perfil.jpg");
+			background-size: 100%
+		}
+		
+		#name-perfil{
+			color:#fff;
+			font-weight: bold;
+			height: 40px;
+			text-indent: 20px;
+			line-height:40px;
+		}
+		
+		
+		#bt-mobile{
+			height: 40px;
+			width: 40px;
+			border-radius: 20px;
+			float:left;
+			background-color: #222;
+			border: 1px solid #aaa;
+			margin-left: calc(50% - 30px);
+			margin-top:10px;
+		}
+		
+		#body-whats{
+			overflow-y: scroll;
+			overflow-x: hide;
+			height: calc(100% -   50px);
+		}
+		
+		#body-whats img{
+			width: 300px;
+			margin-left: calc(50% - 150px);
+		}
+		
+		audio{
+			display:none;
+		}
+		
+		.body-frase{
+			min-height: 100px;
+		}
+		.meta-frase{
+			font-size: 10px;
+			color: #999;
+			float:right;
+		}
+		
+	 </style>
+</head>
+<body id="body">
+
+<div id="container-mobile">
+	<div id="screen-mobile">
+		<div id="header-whats">
+			<div id="icon-perfil"></div>
+			<div id="name-perfil">
+				Steve Jobs
+			</div>
+		</div>
+
+		<div id="body-whats">
+			<img src="loading.gif"> 		
+		</div>
+	</div>
+	
+	<div id="bt-mobile"></div>
+</div>
+
+
+<audio id="sound-whatsapp" controls>
+  <source src="Sound_whatsapp.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+
+</body>
+</html>
