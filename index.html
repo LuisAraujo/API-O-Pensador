@@ -74,7 +74,6 @@
 		text-decoration:none;
 	}
 
-
 	@keyframes fadein-bt {
 		from {color: #fff}
 		to { color: #c31920}
@@ -93,6 +92,17 @@
 		width: 100%;
 	}
 
+	#container-main{
+		height:300px;
+	}
+	#container-logo{
+		width: 40%; float:left;
+	}
+	
+	#container-description{
+	   width: 60%; float:left;
+	}
+	
 	#logo{
 		width: 50%;
 		margin-left: 25%;
@@ -102,6 +112,10 @@
 		font-size: 30px;
 	}
 
+	#container-box-links{
+		margin-top: 100px; 
+	}
+	
 	#content-page{
 		line-height: 40px;
 	}
@@ -129,7 +143,8 @@
 
 				
 	.bt-link.full-size{
-	     width: 100%;
+	     width: calc(100% - 20px);
+		 margin-left:0px;
 		 margin-top: 10px;
 	}
 	
@@ -181,7 +196,8 @@
 	
 	.box-link.s1{
 	    margin-left: 0px;
-		width:90%;
+		width:100%;
+		min-height: 550px;
 		height: 70%; 
 	}
 	.box-link.s1 .title{
@@ -211,6 +227,134 @@
 		margin-top: 5px;
 	}
 	
+	.container-demo{
+		height: 300px; 
+		width: 30%; 
+		margin-top: 50px; 
+		margin-left: 10%;
+		float:left;	
+	}
+	
+	.container-demo:first-child{
+		margin-left: 0 !important;
+	}
+	
+	.img-example{
+		width: 100%;
+	}
+	
+	.subcontainer-demo{
+	    float:right; 
+		width:calc(50% - 10px); 
+		margin-left: 10px;
+	}
+	
+	
+	@media (max-width: 1300px) { 
+		#content-page{
+			line-height: 30px;
+		}
+		
+		
+	
+	}
+	
+	
+    @media (max-width: 1000px) { 
+		.box-link.s3{
+			float:none;
+			width:100%;
+		}
+		
+		.bt-link{
+			font-size: 10px;
+			width:20%;
+		}
+	}
+		
+		
+	@media (max-width: 800px) { 
+	
+		#container-main{
+			height: 350px;
+		}
+		
+		#container-logo{
+			float:none;
+			width:100%;
+			margin-bottom: 20px;
+		}
+	
+		#container-description{
+			float:none;
+			width:100%;
+			
+		}
+		
+		#title-page{
+			text-align: center;
+		}
+		
+		#logo{
+			width: 20%;
+			margin-left: 40%;
+		}
+		
+		.bt-link{
+			font-size: 10px;
+			width: calc(30% - 10px);
+			
+		}
+		
+		.bt-link:first-child{
+			margin-left: 0px;
+		}
+		
+		.section-page{
+			height: 550px;
+		}
+		
+		.desciption{	
+			line-height: 25px;
+		}
+		
+		#container-box-links{
+		 margin-top: 70px; 
+	  }
+		
+		#container-box-links .box-link{
+			height: 70px;
+			padding: 10px;
+		}
+		
+		#container-box-links .bt-link{
+		   margin-top: 0px;
+		   
+		}
+		
+		.container-demo{
+			height: 100px; 
+			width: 40%; 
+			float:left;	
+		}
+		
+		.subcontainer-demo{
+	      float:none;	
+		  margin-left:0px;
+		}
+		
+		.subcontainer-demo.text{
+			width:0px;
+			display:none;
+			visibility:hidden;
+		}
+		
+		
+	}
+	
+	
+	
+	
 </style>
 </head>
 
@@ -226,12 +370,12 @@
 
 <section class="section-page" id="page-home">
 
- <div style="height:300px;">
-	<div style="width: 40%; float:left;">
-	<img id="logo" src = "favicon.png">
- </div>
+ <div id="container-main">
+	<div id="container-logo">
+		<img id="logo" src = "favicon.png">
+	</div>
 
- <div style="width: 60%; float:left;">
+ <div id="container-description">
      <div id="title-page">Incorpore frases em suas aplicações</div>
 	 <div style= " margin-top: 30px;" id="content-page">
 		 API O Pensador é uma API - <i>não oficial</i> - para obtenção de frases do site "O Pensador". </br>	 
@@ -239,16 +383,16 @@
 		 Todas as frases são do site <a href="https://pensador.uol.com.br/" target="blank">O Pensador</a> e devem ser referenciadas.	 
 	 </div>
 	 <div >
-		<div class="bt-link"><img src="git-icon.png"> Repositório do Github</div>
+		<a id="bt-github" class="bt-link" href="https://github.com/LuisAraujo/API-O-Pensador" target="black"><img src="git-icon.png"> Repositório do Github</a>
 	  
-		<div class="bt-link"> <img src="play-icon.png">Inicializar API</div>
+		<a class="page-scroll bt-link"  href="#page-guide"  > <img src="play-icon.png">Inicializar API</a>
 	  
-		<div class="bt-link"> <img src="view-icon.png"> Visualize o Demo </div>
+		<a  class="page-scroll bt-link"  href="#page-examples" > <img src="view-icon.png"> Visualize o Demo </a>
 	  </div> 	 	   
 </div>
 </div>
 
-<div style="margin-top: 100px; ">
+<div id="container-box-links" style="">
 <div class="box-link s3">
 	<div class="title">Donwload API</div>
 	<div class="bt-link center percent-size"> <img src="down-icon.png"> Download  </div>	 
@@ -277,7 +421,7 @@
  
  </div> 
 
- <pre style='text-align:left;  color:#000000;background:#f2f2f2; padding:10px; border-radius:10px'>
+<pre style='text-align:left;  color:#000000;background:#f2f2f2; padding:10px; border-radius:10px; height: 270px; overflow:scroll'>
 <span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; font-weight:bold; '>html</span><span style='color:#7f0055; '>></span> 
  <span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; font-weight:bold; '>head</span><span style='color:#7f0055; '>></span>
  <span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; font-weight:bold; '>script</span> src=<span style='color:#2a00ff; '>"opensador-api.js"</span><span style='color:#7f0055; '>></span><span style='color:#7f0055; '>&lt;/</span><span style='color:#7f0055; font-weight:bold; '>script</span><span style='color:#7f0055; '>></span>
@@ -311,15 +455,43 @@
  <div class="title"> Exemplo </div>
  <div class="desciption"> Veja Exemplos do uso da API O pensador</div> 
  
- <div style="height: 300px; width: 150px; margin-top: 50px; float:left">
-    <img style="height: 100%" src="demo.jpg">
-	<div class="bt-link full-size"> <img src="view-icon.png"></div>	 
+<div class="container-demo" style="">
+    <div class="subcontainer-demo">
+		<img class="img-example" src="demo2.jpg">
+		<a class="bt-link full-size" href="demo/simples.rar"> <img src="view-icon.png"></a>	 
+	</div>
 	
+	<div  class="subcontainer-demo text">
+		<div style="text-align: center; font-weight: bold; margin-bottom: 10px;" >
+		Implementação Simples
+		</div>
+		<div style="text-align: justify;">
+		Uma aplicação web que gera uma lista com as frases do autor.
+		</div>
+	</div>
  </div>
 
  
-</section>
+ <div class="container-demo" style="">
+    <div class="subcontainer-demo" >
+		<img class="img-example" src="demo.jpg">
+		<a class="bt-link full-size" href="demo/whatsapp_jobs.rar" download> <img src="view-icon.png"></a>	 
+	</div>
+	
+	<div  class="subcontainer-demo text">
+		<div style="text-align: center; font-weight: bold; margin-bottom: 10px;">
+		WhatsApp com Steve Jobs!
+		</div>
+		<div style="text-align: justify;">
+		Uma aplicação web de simualação do WhatsApp com frases
+		do Steve Jobs sendo enviadas.
+		</div>
+	</div>
+ </div>
 
 </div>
+</section>
+
+
 </body>
 </html>
